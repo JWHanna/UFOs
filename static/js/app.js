@@ -7,24 +7,24 @@ var tbody = d3.select("tbody");
     // Use d3.select to tell JavaScript to look for the <tbody> tags in the HTML
 
 function buildTable(data) {
-// Clear out any existing data
-    // References the table, pointing JavaScript directly to the table in the HTML page to be built
+    // First, clear out any existing data
     tbody.html("");
-}
-    // Parentheses with empty quotes (("");) is an empty string
-
-// Loop through each object in the data and append a row and cells for each value in the row
-data.forEach((dataRow) => {
-    let row = tbody.append("tr");
-    // Append a row to the table body
-
-    // Loop through each field in the dataRow and add each value as a table cell (td)
-    Object.values(dataRow).forEach((val) => {
+    
+    // Next, loop through each object in the data
+    // and append a row and cells for each value in the row
+    data.forEach((dataRow) => {
+        // Append a row to the table body
+        let row = tbody.append("tr");
+    
+        // Loop through each field in the dataRow and add
+        // each value as a table cell (td)
+        Object.values(dataRow).forEach((val) => {
         let cell = row.append("td");
         cell.text(val);
-        }
-    );
-});
+        });
+    });
+    }
+  
 
 function handleClick() {
     // Grab the datetime value from the filter
